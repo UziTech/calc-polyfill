@@ -322,7 +322,7 @@ fillcalc v0.0.1 - (c) Robert Weber, freely distributable under the terms of the 
         var reference_value, modifier, fontsize;
 
         if ( match.match(PERCENT) ) {
-          reference_value = obj.element.parentNode.clientWidth;
+          reference_value = obj.element.parentNode.clientWidth - parseInt(util.style.get(obj.element.parentNode, "padding-left"), 10) - parseInt(util.style.get(obj.element.parentNode, "padding-right"), 10) - 1;
 
           modifier = parseInt(match, 10) / 100;
           formula = formula.replace(match, reference_value * modifier);
