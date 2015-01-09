@@ -6,6 +6,13 @@ fillcalc v0.0.1 - (c) Robert Weber, freely distributable under the terms of the 
 
   'use strict';
 
+	// Test for calc browser support
+	var el = document.createElement('div');
+	el.style.cssText = "width: calc(1px)";
+	if (!!el.style.length) {
+		return;
+	}
+
   // We need document.querySelectorAll as we do not want depend on any lib
   if (!doc.querySelectorAll) {
     return;
